@@ -1,0 +1,34 @@
+MODEL VISTA CONTROLADOR
+
+• VIEW (Vista): Interacció amb l'usuari. Mostra el menú, llegeix el que l'usuari escriu pel teclat (Scanner)
+                o mostra les dades per pantalla (System.out.println). No conté cap lògica, només rep dades i
+                les ensenya.
+
+
+• DAO (Data Access Object - Interfície): El contracte de la Base de Dades. És una interfície (un fitxer on només
+                                         es llisten els mètodes, sense programar-los). Defineix què es podrà fer
+                                         amb la base de dades.
+	                                     • Exemple: public void afegirPersona(Persona p); (sense claus {}).
+
+
+• DAO IMPL (DAO Implementation): La connexió real i les consultes SQL. És la classe que implementa la interfície DAO.
+                                 Aquí és on s'escriu el codi real (enllaç JDBC, consultes SQL com INSERT INTO...,
+                                 SELECT * FROM..., etc.) per connectar-se a la BD i fer la feina bruta.
+
+
+• MODEL (Entitat/POJO): Definir cada objecte (getters, setters, constructors, etc.). Són les "plantilles" dels teus
+                        objectes de la vida real transformats en codi (ex: Persona, Cotxe, Producte).
+                        Són objectes "transparents" que només serveixen per transportar la informació d'un lloc a
+                        un altre de l'aplicació.
+
+
+• CONTROLLER (Controlador): L'àrbitre i cervell de l'aplicació. Com molt bé dius, és el que mana. Coordina el flux:
+                            rep l'ordre de la View, gestiona la lògica de negoci si cal, crida el DAO perquè
+                             guardi/recuperi les dades de la BD, i finalment diu a la View què ha de mostrar.
+                             Conté mètodes com afegirPersona(), eliminarPersona().
+
+
+• BD (Base de Dades): El magatzem persistent. És on es guarden les dades de manera permanent en taules
+                      (ex: MySQL, PostgreSQL, SQLite). Fins i tot si apagues l'ordinador, les dades continuen allà.
+                       El DAO Impl és l'únic que hi parla directament.
+

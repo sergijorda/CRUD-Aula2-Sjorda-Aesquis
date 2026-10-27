@@ -14,12 +14,15 @@ public class APP {
 
         switch (menu){
             case 1:
+
                 break;
 
             case 2:
+
                 break;
 
             case 3:
+                System.out.println("Fins un altre!");
                 break;
 
             default:
