@@ -1,44 +1,52 @@
 package VIEW;
 
+import MODEL.PROFESSOR;
+
 import java.sql.SQLOutput;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class PROFESSOR_VIEW {
     Scanner input = new Scanner(System.in);
 
-    public String demanaNomProfessor(){
-        System.out.print("Nom del professor:" );
+
+    public PROFESSOR demanarDades(){
+        System.out.println("Digues el nom del professor");
         String nomProfessor = input.nextLine();
 
-        return nomProfessor;
-    }
 
-    public String demanaCognomProfessor(){
-        System.out.print("Cognom del professor:" );
+        System.out.println("Digues el cognom del professor");
         String cognomProfessor = input.nextLine();
 
-        return cognomProfessor;
+        PROFESSOR professor = new PROFESSOR(nomProfessor, cognomProfessor);
+
+        return professor;
     }
 
-    public String afegirProfessor(){
-        System.out.println("Quin professor vols afegir? ");
-        String afegirProfessor = input.nextLine();
 
-        return afegirProfessor;
+    public String demanarID(){
+        System.out.println("Digues ID del professor");
+        String id = input.nextLine();
+
+        return id;
     }
 
-    public String actualitzarProfessor(){
-        System.out.println("Quin professor vols actualitzar? ");
-        String actualitzarProfessor = input.nextLine();
 
-        return actualitzarProfessor;
+    public void mostrarProfessors(){
+        ArrayList<PROFESSOR> professorsDam2 = new ArrayList<>();
+
+        for (PROFESSOR p : professorsDam2) {
+            professorsDam2.add(p);
+            System.out.println(professorsDam2);
+        }
+
     }
 
-    public String eliminarProfessor(){
-        System.out.println("Quin professor vols eliminar? ");
-        String eliminarProfessor = input.nextLine();
+    //mostrar com a anat execucio
 
-        return eliminarProfessor;
-    }
+
+
+
+
 
 }
