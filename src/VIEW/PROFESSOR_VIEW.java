@@ -1,52 +1,30 @@
 package VIEW;
 
+import java.util.Scanner;
+import CONTROLLER.PROFESSOR_CONTROLLER;
 import MODEL.PROFESSOR;
 
-import java.sql.SQLOutput;
-import java.util.ArrayList;
-import java.util.Scanner;
-
 public class PROFESSOR_VIEW {
-    Scanner input = new Scanner(System.in);
+    private PROFESSOR_CONTROLLER controller;
 
-
-    public PROFESSOR demanarDades(){
-        System.out.println("Digues el nom del professor");
-        String nomProfessor = input.nextLine();
-
-
-        System.out.println("Digues el cognom del professor");
-        String cognomProfessor = input.nextLine();
-
-        PROFESSOR professor = new PROFESSOR(nomProfessor, cognomProfessor);
-
-        return professor;
+    public PROFESSOR_VIEW() {
+        this.controller = new PROFESSOR_CONTROLLER();
     }
 
+    public void demanaProfessor() {
+        Scanner scanner = new Scanner(System.in);
 
-    public String demanarID(){
-        System.out.println("Digues ID del professor");
-        String id = input.nextLine();
+        System.out.println("\n--- ALTA DE PROFESSOR ---");
+        System.out.print("Introdueix el nom: ");
+        String nom = scanner.nextLine();
 
-        return id;
+        System.out.print("Introdueix els cognoms: ");
+        String cognoms = scanner.nextLine();
+
+        // Creem l'objecte del Model
+        PROFESSOR nouProfessor = new PROFESSOR(nom, cognoms);
+
+        // El enviem al controlador
+        controller.altaProfessor(nouProfessor);
     }
-
-
-    public void mostrarProfessors(){
-        ArrayList<PROFESSOR> professorsDam2 = new ArrayList<>();
-
-        for (PROFESSOR p : professorsDam2) {
-            professorsDam2.add(p);
-            System.out.println(professorsDam2);
-        }
-
-    }
-
-    //mostrar com a anat execucio
-
-
-
-
-
-
 }
