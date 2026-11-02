@@ -1,7 +1,8 @@
-package view; // Revisa si el paquet és view o VIEW (en majúscules com a la teva imatge)
+package view; // Revisa si el teu paquet s'ha de dir view o VIEW
 
 import java.util.Scanner;
-import VIEW.PROFESSOR_VIEW; // Importem la vista que hem creat abans
+import VIEW.PROFESSOR_VIEW;
+import VIEW.MODUL_PROFESSIONAL_VIEW; // 👈 Importem la vista de mòduls que farà el teu company
 
 public class APP {
     public static void main(String[] args) {
@@ -30,11 +31,14 @@ public class APP {
                     System.out.println("Opció no vàlida.");
             }
         } while (opcio != 3);
+
+        scanner.close();
     }
 
     private static void menuGestionar(String tipus, Scanner scanner) {
-        // Instanciem la vista de professors per poder utilitzar-la al case 1
+        // Instanciem les dues vistes. Estaran a punt segons el menú on entrem
         PROFESSOR_VIEW professorView = new PROFESSOR_VIEW();
+        MODUL_PROFESSIONAL_VIEW modulView = new MODUL_PROFESSIONAL_VIEW();
         int opcioSubmenu;
 
         do {
@@ -50,20 +54,31 @@ public class APP {
             switch (opcioSubmenu) {
                 case 1:
                     if (tipus.equals("Professors")) {
-                        // 1. Cridem al mètode de la vista que demana les dades per consola
                         professorView.demanaProfessor();
                     } else {
-                        System.out.println("Alta de Mòduls Professionals (encara no implementat)");
+                        //modulView.demanaModul();
                     }
                     break;
                 case 2:
-                    System.out.println("Has triat: Llistar " + tipus);
+                    if (tipus.equals("Professors")) {
+                        professorView.mostraProfessors();
+                    } else {
+                        //modulView.mostraModuls();
+                    }
                     break;
                 case 3:
-                    System.out.println("Has triat: Actualitzar " + tipus);
+                    if (tipus.equals("Professors")) {
+                        professorView.modificaProfessor();
+                    } else {
+                        //modulView.modificaModul();
+                    }
                     break;
                 case 4:
-                    System.out.println("Has triat: Eliminar " + tipus);
+                    if (tipus.equals("Professors")) {
+                        professorView.eliminaProfessor();
+                    } else {
+                        //modulView.eliminaModul();
+                    }
                     break;
                 case 5:
                     System.out.println("Tornant al menú principal...");
