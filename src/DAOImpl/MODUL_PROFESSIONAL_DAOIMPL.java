@@ -11,7 +11,7 @@ public class MODUL_PROFESSIONAL_DAOIMPL implements MODUL_PROFESSIONAL_DAO {
 
     @Override
     public void addDam2(MODUL_PROFESSIONAL modul) {
-        String sql = "INSERT INTO ModulsProfessionals (nom, id_professor) VALUES (?, ?)";
+        String sql = "INSERT INTO modulsprofessionals (nom, id_professor) VALUES (?, ?)";
         try (Connection conn = Utils.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setString(1, modul.getNom());
@@ -28,7 +28,7 @@ public class MODUL_PROFESSIONAL_DAOIMPL implements MODUL_PROFESSIONAL_DAO {
     public List<MODUL_PROFESSIONAL> readDam2() {
         List<MODUL_PROFESSIONAL> llista = new ArrayList<>();
         String sql = "SELECT m.id, m.nom, m.id_professor, p.nom AS nom_prof " +
-                "FROM ModulsProfessionals m " +
+                "FROM modulsprofessionals m " +
                 "LEFT JOIN Professors p ON m.id_professor = p.id";
         try (Connection conn = Utils.getConnection();
              Statement st = conn.createStatement();
@@ -50,7 +50,7 @@ public class MODUL_PROFESSIONAL_DAOIMPL implements MODUL_PROFESSIONAL_DAO {
 
     @Override
     public void updateDam2(MODUL_PROFESSIONAL modul) {
-        String sql = "UPDATE ModulsProfessionals SET nom = ?, id_professor = ? WHERE id = ?";
+        String sql = "UPDATE modulsprofessionals SET nom = ?, id_professor = ? WHERE id = ?";
         try (Connection conn = Utils.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setString(1, modul.getNom());
@@ -66,7 +66,7 @@ public class MODUL_PROFESSIONAL_DAOIMPL implements MODUL_PROFESSIONAL_DAO {
 
     @Override
     public void deleteDam2(int idModul) {
-        String sql = "DELETE FROM ModulsProfessionals WHERE id = ?";
+        String sql = "DELETE FROM modulsprofessionals WHERE id = ?";
         try (Connection conn = Utils.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setInt(1, idModul);
