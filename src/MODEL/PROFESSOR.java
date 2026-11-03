@@ -5,14 +5,12 @@ public class PROFESSOR {
     private String nom;
     private String cognom;
 
-    // Constructor complet i corregit
     public PROFESSOR(int id, String nom, String cognom) {
         this.id = id;
         this.nom = nom;
         this.cognom = cognom;
     }
 
-    // Segon constructor (per si el demanes així) també corregit
     public PROFESSOR(String cognom, int id, String nom) {
         this.id = id;
         this.cognom = cognom;

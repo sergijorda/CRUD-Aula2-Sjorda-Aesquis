@@ -34,7 +34,6 @@ public class PROFESSOR_DAOIMPL implements PROFESSOR_DAO {
         List<PROFESSOR> llista = new ArrayList<>();
         String sql = "SELECT * FROM Professors";
 
-        // Fem servir Statement en comptes de PreparedStatement perquè no hi ha paràmetres d'entrada
         try (Connection conn = Utils.getConnection();
              Statement st = conn.createStatement();
              ResultSet rs = st.executeQuery(sql)) {
@@ -44,8 +43,6 @@ public class PROFESSOR_DAOIMPL implements PROFESSOR_DAO {
                 String nom = rs.getString("nom");
                 String cognoms = rs.getString("cognoms");
 
-                // Creem l'objecte professor recuperant el seu ID de la BBDD
-                // Assegura't de tenir un constructor al teu MODEL que accepti (id, nom, cognom)
                 PROFESSOR p = new PROFESSOR(id, nom, cognoms);
                 llista.add(p);
             }
@@ -84,7 +81,7 @@ public class PROFESSOR_DAOIMPL implements PROFESSOR_DAO {
         try (Connection conn = Utils.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
-            ps.setInt(1, idProfessor); // Passem l'ID rebut per paràmetre
+            ps.setInt(1, idProfessor);
 
             int rows = ps.executeUpdate();
             if (rows > 0) {

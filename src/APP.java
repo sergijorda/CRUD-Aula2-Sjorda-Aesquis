@@ -1,8 +1,8 @@
-package view; // Revisa si el teu paquet s'ha de dir view o VIEW
+package view;
 
 import java.util.Scanner;
 import VIEW.PROFESSOR_VIEW;
-import VIEW.MODUL_PROFESSIONAL_VIEW; // 👈 Importem la vista de mòduls que farà el teu company
+import VIEW.MODUL_PROFESSIONAL_VIEW;
 
 public class APP {
     public static void main(String[] args) {
@@ -36,7 +36,6 @@ public class APP {
     }
 
     private static void menuGestionar(String tipus, Scanner scanner) {
-        // Instanciem les dues vistes. Estaran a punt segons el menú on entrem
         PROFESSOR_VIEW professorView = new PROFESSOR_VIEW();
         MODUL_PROFESSIONAL_VIEW modulView = new MODUL_PROFESSIONAL_VIEW();
         int opcioSubmenu;
@@ -56,28 +55,28 @@ public class APP {
                     if (tipus.equals("Professors")) {
                         professorView.demanaProfessor();
                     } else {
-                        //modulView.demanaModul();
+                        modulView.demanaModul();
                     }
                     break;
                 case 2:
                     if (tipus.equals("Professors")) {
                         professorView.mostraProfessors();
                     } else {
-                        //modulView.mostraModuls();
+                        modulView.mostraModuls();
                     }
                     break;
                 case 3:
                     if (tipus.equals("Professors")) {
                         professorView.modificaProfessor();
                     } else {
-                        //modulView.modificaModul();
+                        modulView.modificaModul();
                     }
                     break;
                 case 4:
                     if (tipus.equals("Professors")) {
                         professorView.eliminaProfessor();
                     } else {
-                        //modulView.eliminaModul();
+                        modulView.eliminaModul();
                     }
                     break;
                 case 5:
